@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cuestionario de Bienestar Emocional - Sumaq Kawsay</title>
+  <style>
+    /* Estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #4a4e69, #9a8c98);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 32px 16px;
+      text-align: center;
+    }
+    #quiz-container {
+      background: rgba(255 255 255 / 0.1);
+      padding: 24px;
+      border-radius: 16px;
+      max-width: 640px;
+      width: 100%;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .question-block {
+      background: rgba(0,0,0,0.15);
+      padding: 18px;
+      border-radius: 12px;
+      text-align: left;
+    }
+    .question-text {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: #eee;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    label {
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(255 255 255 / 0.1);
+      transition: background-color 0.3s ease;
+    }
+    label:hover,
+    label:focus-within {
+      background: rgba(255 255 255 / 0.3);
+      outline: none;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    #submit-btn {
+      padding: 14px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background-color: #7749f8;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #submit-btn:hover:not(:disabled),
+    #submit-btn:focus:not(:disabled) {
+      background-color: #672cbc;
+      outline: none;
+    }
+    #submit-btn:disabled {
+      background-color: #b388ff;
+      cursor: default;
+    }
+    #result {
+      margin-top: 24px;
+      background: rgba(0,0,0,0.2);
+      padding: 20px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      text-align: center;
+      min-height: 60px;
+    }
+    /* Responsive */
+    @media (max-width: 640px) {
+      #quiz-container {
+        padding: 16px;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="quiz-container" role="main">
+    <h1>🧠 Cuestionario de Bienestar Emocional</h1>
+    <p>Instrucciones: Responde con sinceridad. No hay respuestas buenas ni malas. Este cuestionario es confidencial y tiene como objetivo ayudarte a identificar cómo te sientes emocionalmente.</p>
+    <form id="quiz-form">
+
+      <div class="question-block" role="group" aria-labelledby="q1-label">
+        <p id="q1-label" class="question-text">1. Estado de Ánimo (últimas 2 semanas):</p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="primera" required /> Me siento alegre y motivado/a la mayor parte del tiempo.</label>
+          <label><input type="radio" name="q1" value="segunda" /> Me siento triste o sin ganas la mayor parte del tiempo.</label>
+          <label><input type="radio" name="q1" value="tercera" /> Me siento indiferente, como si nada importara.</label>
+        </div>
+      </div>
+
+      <div class="question-block" role="group" aria-labelledby="q2-label">
+        <p id="q2-label" class="question-text">2. Sueño:</p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="primera" required /> Duermo bien y me siento descansado/a.</label>
+          <label><input type="radio" name="q2" value="segunda" /> Me cuesta dormir o me despierto muchas veces.</label>
+          <label><input type="radio" name="q2" value="tercera" /> Duermo demasiado o no tengo ganas de levantarme.</label>
+        </div>
+      </div>
+
+      <div class="question-block" role="group" aria-labelledby="q3-label">
+        <p id="q3-label" class="question-text">3. Energía:</p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="primera" required /> Tengo energía para hacer mis actividades diarias.</label>
+          <label><input type="radio" name="q3" value="segunda" /> Me siento cansado/a sin razón aparente.</label>
+          <label><input type="radio" name="q3" value="tercera" /> No tengo fuerzas ni motivación para nada.</label>
+        </div>
+      </div>
+
+      <div class="question-block" role="group" aria-labelledby="q4-label">
+        <p id="q4-label" class="question-text">4. Pensamientos:</p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="primera" required /> Tengo pensamientos positivos sobre mí y el futuro.</label>
+          <label><input type="radio" name="q4" value="segunda" /> A veces tengo pensamientos negativos o me critico mucho.</label>
+          <label><input type="radio" name="q4" value="tercera" /> Me siento atrapado/a en pensamientos negativos o tristes.</label>
+        </div>
+      </div>
+
+      <div class="question-block" role="group" aria-labelledby="q5-label">
+        <p id="q5-label" class="question-text">5. Relaciones:</p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="primera" required /> Me siento acompañado/a y escuchado/a.</label>
+          <label><input type="radio" name="q5" value="segunda" /> A veces me siento solo/a o incomprendido/a.</label>
+          <label><input type="radio" name="q5" value="tercera" /> Evito hablar con otros o siento que no le importo a nadie.</label>
+        </div>
+      </div>
+
+      <div class="question-block" role="group" aria-labelledby="q6-label">
+        <p id="q6-label" class="question-text">6. Estrés y Ansiedad:</p>
+        <div class="options">
+          <label><input type="radio" name="q6" value="primera" required /> Me siento tranquilo/a la mayor parte del tiempo.</label>
+          <label><input type="radio" name="q6" value="segunda" /> Me preocupo con frecuencia y me cuesta relajarme.</label>
+          <label><input type="radio" name="q6" value="tercera" /> Me siento abrumado/a o nervioso/a todo el tiempo.</label>
+        </div>
+      </div>
+
+      <div class="question-block" role="group" aria-labelledby="q7-label">
+        <p id="q7-label" class="question-text">7. Autocuidado:</p>
+        <div class="options">
+          <label><input type="radio" name="q7" value="primera" required /> Me cuido y trato de mantenerme bien física y emocionalmente.</label>
+          <label><input type="radio" name="q7" value="segunda" /> A veces olvido cuidarme o no tengo energía para hacerlo.</label>
+          <label><input type="radio" name="q7" value="tercera" /> No tengo interés en cuidarme ni siento que valga la pena.</label>
+        </div>
+      </div>
+
+      <button id="submit-btn" type="submit" aria-label="Enviar respuestas">Enviar</button>
+    </form>
+
+    <section id="result" aria-live="polite" aria-atomic="true" tabindex="0"></section>
+  </main>
+
+  <script>
+    (function() {
+      const form = document.getElementById('quiz-form');
+      const resultEl = document.getElementById('result');
+      const submitBtn = document.getElementById('submit-btn');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent form submission
+
+        const formData = new FormData(form);
+
+        let primeraCount = 0;
+        let segundaCount = 0;
+        let terceraCount = 0;
+
+        for (let i = 1; i <= 7; i++) {
+          const answer = formData.get(`q${i}`);
+          if (answer === 'primera') {
+            primeraCount++;
+          } else if (answer === 'segunda') {
+            segundaCount++;
+          } else {
+            terceraCount++;
+          }
+        }
+
+        let message = '';
+        if (primeraCount >= segundaCount && primeraCount >= terceraCount) {
+          message = "Bienestar emocional adecuado. Sigue cuidándote.";
+        } else if (segundaCount >= primeraCount && segundaCount >= terceraCount) {
+          message = "Atención. Podrías estar experimentando un desequilibrio emocional.";
+        } else {
+          message = "Riesgo alto. Es importante buscar apoyo psicológico profesional.";
+        }
+
+        resultEl.textContent = message;
+        resultEl.focus(); // Set focus for accessibility
+        window.scrollTo({ top: resultEl.offsetTop - 20, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>
